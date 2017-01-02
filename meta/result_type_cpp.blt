@@ -1,0 +1,20 @@
+
+///////////////////////////////////////////////////////////////////////////////
+const char* get_name(`typename` `param`) {
+   switch (`param`) {`
+      with each constants using # {
+         nl `      case ` $$$.typename `::` $[1] `: return "` $[1] `";`
+      }`
+      default: return "?";
+   }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+`typename` get_result_type(int `param`) {
+   switch (`param`) {`
+      with each constants using # {
+         nl `      case ` $[2] `: return ` $$$.typename `::` $[1] `;`
+      }`
+      default: return `typename`::`constants[1][1]`;
+   }
+}

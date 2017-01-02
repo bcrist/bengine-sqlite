@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>sqlite</ProjectName>
+    <RootNamespace>sqlite</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectGuid>{641484CE-0667-4815-BC75-B63E957D44BD}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <Import Project="$(SolutionDir)msvc_common.props" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <Import Project="$(SolutionDir)msvc_common.props" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>BE_SQLITE_IMPL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>BE_SQLITE_IMPL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\static_stmt_cache.hpp" />
+    <ClInclude Include="include\stmt_cache.hpp" />
+    <ClInclude Include="include\stmt_proxy.hpp" />
+    <ClInclude Include="include\db.hpp" />
+    <ClInclude Include="include\pch.hpp" />
+    <ClInclude Include="include\queries.hpp" />
+    <ClInclude Include="include\result_type.hpp" />
+    <ClInclude Include="include\sqlite_autolink.hpp" />
+    <ClInclude Include="include\sqlite.hpp" />
+    <ClInclude Include="include\sqlite_fwd.hpp" />
+    <ClInclude Include="include\exceptions.hpp" />
+    <ClInclude Include="include\stmt.hpp" />
+    <ClInclude Include="include\stmt_base.hpp" />
+    <ClInclude Include="include\shared_stmt_cache.hpp" />
+    <ClInclude Include="include\cached_stmt.hpp" />
+    <ClInclude Include="include\transaction.hpp" />
+    <ClInclude Include="include\transaction_type.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\static_stmt_cache.cpp" />
+    <ClCompile Include="src\stmt_cache.cpp" />
+    <ClCompile Include="src\stmt_proxy.cpp" />
+    <ClCompile Include="src\db.cpp" />
+    <ClCompile Include="src\exceptions.cpp" />
+    <ClCompile Include="src\pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\queries.cpp" />
+    <ClCompile Include="src\result_type.cpp" />
+    <ClCompile Include="src\sqlite.c">
+      <PrecompiledHeader>None</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\stmt.cpp" />
+    <ClCompile Include="src\stmt_base.cpp" />
+    <ClCompile Include="src\shared_stmt_cache.cpp" />
+    <ClCompile Include="src\transaction.cpp" />
+    <ClCompile Include="src\transaction_type.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="meta\result_type_cpp.blt" />
+    <None Include="meta\result_type.lua" />
+    <None Include="meta\result_type_hpp.blt" />
+    <None Include="meta\transaction_type_cpp.blt" />
+    <None Include="meta\transaction_type_hpp.blt" />
+    <None Include="meta\transaction_type.lua" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

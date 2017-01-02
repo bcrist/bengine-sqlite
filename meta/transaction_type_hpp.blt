@@ -1,0 +1,11 @@
+
+///////////////////////////////////////////////////////////////////////////////
+enum class `typename` {`
+   with each constants using # {
+      if (__k__ > 1) { `,` }
+      nl `   ` $
+   }`
+};
+
+const char* get_name(`typename` `param`);
+const char* get_create_transaction_sql(`typename` `param`);
