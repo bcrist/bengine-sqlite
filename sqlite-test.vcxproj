@@ -41,12 +41,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
-    <ClCompile Include="test\db.cpp" />
-    <ClCompile Include="test\shared_stmt_cache.cpp" />
-    <ClCompile Include="test\static_stmt_cache.cpp" />
-    <ClCompile Include="test\stmt.cpp" />
+    <ClCompile Include="test\test_db.cpp" />
+    <ClCompile Include="test\test_shared_stmt_cache.cpp" />
+    <ClCompile Include="test\test_static_stmt_cache.cpp" />
+    <ClCompile Include="test\test_stmt.cpp" />
     <ClCompile Include="test\test_main.cpp" />
-    <ClCompile Include="test\transaction.cpp" />
+    <ClCompile Include="test\test_transaction.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
