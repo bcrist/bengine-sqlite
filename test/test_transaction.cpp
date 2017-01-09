@@ -3,7 +3,7 @@
 #include "transaction.hpp"
 #include "db.hpp"
 #include "queries.hpp"
-#include <catch.hpp>
+#include <catch/catch.hpp>
 
 #define BE_CATCH_TAGS "[sqlite][sqlite:transaction]"
 
