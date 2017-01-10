@@ -7,14 +7,13 @@ module 'sqlite' {
       src_no_pch 'src/*.c',
       src 'src/*.cpp',
       pch_src 'src/pch.cpp',
-      define 'BE_SQLITE_IMPL'
+      define 'BE_SQLITE_IMPL',
+      link_project 'core'
    },
    app '-test' {
       icon 'icon/bengine-test-perf.ico',
       link_project {
          'testing',
-         'core',
-         'core-id',
          'sqlite'
       }
    }
