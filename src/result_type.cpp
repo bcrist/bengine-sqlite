@@ -6,7 +6,7 @@ namespace be {
 namespace sqlite {
 
 /*!! include('result_type', 'cpp') !! 28 */
-/* ######## !! GENERATED CODE -- DO NOT MODIFY !! ######## */
+/* ################# !! GENERATED CODE -- DO NOT MODIFY !! ################# */
 
 ///////////////////////////////////////////////////////////////////////////////
 const char* get_name(ResultType type) {
@@ -32,7 +32,7 @@ ResultType get_result_type(int type) {
    }
 }
 
-/* ################ END OF GENERATED CODE ################ */
+/* ######################### END OF GENERATED CODE ######################### */
 
 } // be::sqlite
 } // be

@@ -8,7 +8,7 @@ namespace be {
 namespace sqlite {
 
 /*!! include('result_type', 'hpp') !! 16 */
-/* ######## !! GENERATED CODE -- DO NOT MODIFY !! ######## */
+/* ################# !! GENERATED CODE -- DO NOT MODIFY !! ################# */
 
 ///////////////////////////////////////////////////////////////////////////////
 enum class ResultType {
@@ -22,7 +22,7 @@ enum class ResultType {
 const char* get_name(ResultType type);
 ResultType get_result_type(int type);
 
-/* ################ END OF GENERATED CODE ################ */
+/* ######################### END OF GENERATED CODE ######################### */
 
 } // be::sqlite
 } // be

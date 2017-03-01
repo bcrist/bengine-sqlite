@@ -5,7 +5,7 @@ namespace be {
 namespace sqlite {
 
 /*!! include('transaction_type', 'cpp') !! 24 */
-/* ######## !! GENERATED CODE -- DO NOT MODIFY !! ######## */
+/* ################# !! GENERATED CODE -- DO NOT MODIFY !! ################# */
 
 ///////////////////////////////////////////////////////////////////////////////
 const char* get_name(TransactionType type) {
@@ -27,7 +27,7 @@ const char* get_create_transaction_sql(TransactionType type) {
    }
 }
 
-/* ################ END OF GENERATED CODE ################ */
+/* ######################### END OF GENERATED CODE ######################### */
 
 } // be::sqlite
 } // be

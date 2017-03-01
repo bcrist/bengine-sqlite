@@ -8,7 +8,7 @@ namespace be {
 namespace sqlite {
 
 /*!! include('transaction_type', 'hpp') !! 14 */
-/* ######## !! GENERATED CODE -- DO NOT MODIFY !! ######## */
+/* ################# !! GENERATED CODE -- DO NOT MODIFY !! ################# */
 
 ///////////////////////////////////////////////////////////////////////////////
 enum class TransactionType {
@@ -20,7 +20,7 @@ enum class TransactionType {
 const char* get_name(TransactionType type);
 const char* get_create_transaction_sql(TransactionType type);
 
-/* ################ END OF GENERATED CODE ################ */
+/* ######################### END OF GENERATED CODE ######################### */
 
 } // be::sqlite
 } // be
