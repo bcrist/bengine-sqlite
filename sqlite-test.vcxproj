@@ -47,6 +47,7 @@
     <ClCompile Include="test\test_stmt.cpp" />
     <ClCompile Include="test\test_main.cpp" />
     <ClCompile Include="test\test_transaction.cpp" />
+    <ClCompile Include="test\version.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

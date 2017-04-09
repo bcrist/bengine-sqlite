@@ -22,5 +22,6 @@
     <ClCompile Include="test\test_transaction.cpp">
       <Filter>Tests</Filter>
     </ClCompile>
+    <ClCompile Include="test\version.cpp" />
   </ItemGroup>
 </Project>

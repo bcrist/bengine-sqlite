@@ -70,6 +70,7 @@
     <ClInclude Include="include\cached_stmt.hpp" />
     <ClInclude Include="include\transaction.hpp" />
     <ClInclude Include="include\transaction_type.hpp" />
+    <ClInclude Include="include\version.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\static_stmt_cache.cpp" />
