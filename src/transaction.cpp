@@ -17,7 +17,7 @@ Transaction::Transaction(Db& db)
 ///////////////////////////////////////////////////////////////////////////////
 Transaction::Transaction(Db& db, TransactionType transaction_type)
    : db_(&db) {
-   exec(db, get_create_transaction_sql(transaction_type));
+   exec(db, create_transaction_sql(transaction_type));
 }
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -297,7 +297,7 @@ int StmtBase::column(const char* name) {
 /// \return The type code of the requested column.
 ResultType StmtBase::get_type(int column) {
    assert(column >= 0 && column < columns());
-   return get_result_type(sqlite3_column_type(stmt_, column));
+   return result_type(sqlite3_column_type(stmt_, column));
 }
 
 ///////////////////////////////////////////////////////////////////////////////

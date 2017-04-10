@@ -118,19 +118,10 @@
     <None Include="meta\result_type.lua">
       <Filter>Meta-Source Files</Filter>
     </None>
-    <None Include="meta\result_type_cpp.blt">
-      <Filter>Meta-Source Files</Filter>
-    </None>
-    <None Include="meta\result_type_hpp.blt">
-      <Filter>Meta-Source Files</Filter>
-    </None>
     <None Include="meta\transaction_type.lua">
       <Filter>Meta-Source Files</Filter>
     </None>
-    <None Include="meta\transaction_type_hpp.blt">
-      <Filter>Meta-Source Files</Filter>
-    </None>
-    <None Include="meta\transaction_type_cpp.blt">
+    <None Include="meta\result_type.tsv">
       <Filter>Meta-Source Files</Filter>
     </None>
   </ItemGroup>
