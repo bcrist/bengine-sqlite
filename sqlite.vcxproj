@@ -84,9 +84,7 @@
     <ClCompile Include="src\queries.cpp" />
     <ClCompile Include="src\result_type.cpp" />
     <ClCompile Include="src\sqlite.c">
-      <PrecompiledHeader>None</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\stmt.cpp" />
     <ClCompile Include="src\stmt_base.cpp" />
