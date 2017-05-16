@@ -2,11 +2,10 @@
 #include "result_type.hpp"
 #include "sqlite.hpp"
 
-namespace be {
-namespace sqlite {
-
-/*!! include 'result_type' !! 56 */
+/*!! include 'result_type' !! 76 */
 /* ################# !! GENERATED CODE -- DO NOT MODIFY !! ################# */
+
+namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 bool is_valid(ResultType constant) noexcept {
@@ -36,6 +35,21 @@ const char* result_type_name(ResultType constant) noexcept {
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+std::array<const ResultType, 5> result_type_values() noexcept {
+   return ::be::EnumTraits<ResultType>::values<>();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+std::ostream& operator<<(std::ostream& os, ResultType constant) {
+   if (is_valid(constant)) {
+      os << result_type_name(constant);
+   } else {
+      os << static_cast<I64>(static_cast<U8>(constant));
+   }
+   return os;
+}
+
+///////////////////////////////////////////////////////////////////////////////
 int sqlite_result_type(ResultType constant) noexcept {
    switch (constant) {
       case ResultType::integer: return int(SQLITE_INTEGER);
@@ -60,7 +74,7 @@ ResultType result_type(int value) noexcept {
    }
 }
 
-/* ######################### END OF GENERATED CODE ######################### */
-
 } // be::sqlite
-} // be
+
+
+/* ######################### END OF GENERATED CODE ######################### */

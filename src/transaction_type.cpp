@@ -1,11 +1,10 @@
 #include "pch.hpp"
 #include "transaction_type.hpp"
 
-namespace be {
-namespace sqlite {
-
-/*!! include 'transaction_type' !! 38 */
+/*!! include 'transaction_type' !! 58 */
 /* ################# !! GENERATED CODE -- DO NOT MODIFY !! ################# */
+
+namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 bool is_valid(TransactionType constant) noexcept {
@@ -31,6 +30,21 @@ const char* transaction_type_name(TransactionType constant) noexcept {
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+std::array<const TransactionType, 3> transaction_type_values() noexcept {
+   return ::be::EnumTraits<TransactionType>::values<>();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+std::ostream& operator<<(std::ostream& os, TransactionType constant) {
+   if (is_valid(constant)) {
+      os << transaction_type_name(constant);
+   } else {
+      os << static_cast<I64>(static_cast<U8>(constant));
+   }
+   return os;
+}
+
+///////////////////////////////////////////////////////////////////////////////
 const char* create_transaction_sql(TransactionType constant) noexcept {
    switch (constant) {
       case TransactionType::deferred:  return "BEGIN DEFERRED";
@@ -41,7 +55,7 @@ const char* create_transaction_sql(TransactionType constant) noexcept {
    }
 }
 
-/* ######################### END OF GENERATED CODE ######################### */
-
 } // be::sqlite
-} // be
+
+
+/* ######################### END OF GENERATED CODE ######################### */

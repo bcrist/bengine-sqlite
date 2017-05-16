@@ -1,6 +1,6 @@
 include 'common/enum'
 
-transaction_type = make_enum_class('TransactionType', 'U8', {
+transaction_type = make_enum_class('be::sqlite::TransactionType', 'U8', {
    'deferred', 'immediate', 'exclusive'
 })
 
@@ -15,13 +15,12 @@ local sql_map = {
    default = '"BEGIN"'
 }
 
+include('common/enum_std_begin', transaction_type)
+
 if file_ext == '.hpp' then
-   write_template('common/enum_decl', transaction_type)
-   write_template('common/enum_is_valid_decl', transaction_type)
-   write_template('common/enum_name_decl', transaction_type)
-   write_template('common/enum_scalar_mapping_decl', sql_map)
+   write_template('common/templates/enum_scalar_mapping_decl', sql_map)
 else
-   write_template('common/enum_is_valid', transaction_type)
-   write_template('common/enum_name', transaction_type)
-   write_template('common/enum_scalar_mapping', sql_map)
+   write_template('common/templates/enum_scalar_mapping', sql_map)
 end
+
+include('common/enum_std_end', transaction_type)
