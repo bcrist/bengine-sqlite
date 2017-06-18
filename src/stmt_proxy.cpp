@@ -2,8 +2,7 @@
 #include "stmt_proxy.hpp"
 #include "cached_stmt.hpp"
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 StmtProxy::StmtProxy(detail::CachedStmt& stmt)
@@ -19,4 +18,3 @@ void StmtProxy::deleter::operator()(detail::CachedStmt* stmt) {
 }
 
 } // be::sqlite
-} // be

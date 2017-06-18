@@ -2,8 +2,7 @@
 #include "shared_stmt_cache.hpp"
 #include <cassert>
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 SharedStmtCache::cached_stmt::cached_stmt(SharedStmtCache& cache, Stmt&& s) {
@@ -187,4 +186,3 @@ void SharedStmtCache::check_size_() {
 }
 
 } // be::sqlite
-} // be

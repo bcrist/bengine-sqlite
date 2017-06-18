@@ -6,8 +6,7 @@
 #include "cached_stmt.hpp"
 #include <unordered_map>
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 class Db;
 
@@ -61,6 +60,5 @@ private:
 };
 
 } // be::sqlite
-} // be
 
 #endif

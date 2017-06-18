@@ -4,8 +4,7 @@
 
 #include "stmt.hpp"
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 namespace detail {
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -22,6 +21,5 @@ private:
 
 } // be::sqlite::detail
 } // be::sqlite
-} // be
 
 #endif

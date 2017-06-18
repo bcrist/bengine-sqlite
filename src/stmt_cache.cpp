@@ -1,8 +1,7 @@
 #include "pch.hpp"
 #include "stmt_cache.hpp"
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 StmtProxy StmtCache::obtain(const S& sql) {
@@ -25,4 +24,3 @@ StmtProxy StmtCache::obtain(Id id, const char* sql) {
 }
 
 } // be::sqlite
-} // be

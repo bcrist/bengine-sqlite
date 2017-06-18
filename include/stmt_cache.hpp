@@ -4,8 +4,7 @@
 
 #include "stmt_proxy.hpp"
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 class StmtCache {
@@ -24,6 +23,5 @@ private:
 };
 
 } // be::sqlite
-} // be
 
 #endif

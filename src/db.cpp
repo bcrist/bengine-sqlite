@@ -3,8 +3,7 @@
 #include "sqlite.hpp"
 #include <cassert>
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 Db::Db(const S& path)
@@ -87,4 +86,3 @@ void Db::deleter::operator()(sqlite3* con) const {
 }
 
 } // be::sqlite
-} // be

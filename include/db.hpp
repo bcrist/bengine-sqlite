@@ -7,8 +7,7 @@
 
 #include <be/core/be.hpp>
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 class Db final {
@@ -42,6 +41,5 @@ private:
 };
 
 } // be::sqlite
-} // be
 
 #endif

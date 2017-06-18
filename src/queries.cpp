@@ -3,8 +3,7 @@
 #include "db.hpp"
 #include "sqlite.hpp"
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 ///////////////////////////////////////////////////////////////////////////////
 void vacuum(Db& db) {
    exec(db, "VACUUM");
@@ -41,4 +40,3 @@ void exec(Db& db, const char* sql) {
 }
 
 } // be::sqlite
-} // be

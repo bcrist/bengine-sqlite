@@ -11,8 +11,7 @@
 #define BE_SQLITE_SHARED_STMT_CACHE_DEFAULT_MAX_SIZE 24
 #endif
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 class Db;
 
@@ -76,6 +75,5 @@ private:
 };
 
 } // be::sqlite
-} // be
 
 #endif

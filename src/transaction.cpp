@@ -5,8 +5,7 @@
 #include "sqlite.hpp"
 #include <cassert>
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 Transaction::Transaction(Db& db)
@@ -47,4 +46,3 @@ void Transaction::commit() {
 }
 
 } // be::sqlite
-} // be

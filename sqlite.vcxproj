@@ -57,7 +57,7 @@
     <ClInclude Include="include\stmt_cache.hpp" />
     <ClInclude Include="include\stmt_proxy.hpp" />
     <ClInclude Include="include\db.hpp" />
-    <ClInclude Include="include\pch.hpp" />
+    <ClInclude Include="src\pch.hpp" />
     <ClInclude Include="include\queries.hpp" />
     <ClInclude Include="include\result_type.hpp" />
     <ClInclude Include="include\sqlite_autolink.hpp" />

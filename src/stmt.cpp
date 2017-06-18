@@ -5,8 +5,7 @@
 #include <cassert>
 #include <limits>
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \brief  Compiles the provided SQL query against the provided database and
@@ -58,4 +57,3 @@ void Stmt::deleter::operator()(sqlite3_stmt* stmt) {
 }
 
 } // be::sqlite
-} // be

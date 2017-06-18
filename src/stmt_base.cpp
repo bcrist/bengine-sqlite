@@ -4,8 +4,7 @@
 #include "sqlite.hpp"
 #include <cassert>
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \brief  Returns `true` if this object represents a valid SQLite statement
@@ -419,4 +418,3 @@ StmtBase::StmtBase()
      stmt_(nullptr) { }
 
 } // be::sqlite
-} // be

@@ -5,8 +5,7 @@
 #include "stmt_base.hpp"
 #include <be/core/id.hpp>
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 class Db;
 
@@ -28,6 +27,5 @@ private:
 };
 
 } // be::sqlite
-} // be
 
 #endif

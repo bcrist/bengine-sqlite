@@ -5,8 +5,7 @@
 #include "transaction_type.hpp"
 #include <be/core/be.hpp>
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 class Db;
 
@@ -37,6 +36,5 @@ private:
 };
 
 } // be::sqlite
-} // be
 
 #endif

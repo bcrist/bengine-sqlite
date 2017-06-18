@@ -5,8 +5,7 @@
 #include "sqlite_autolink.hpp"
 #include <be/core/be.hpp>
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 class Db;
 
@@ -15,7 +14,6 @@ void vacuum(Db& db);
 void exec(Db& db, const S& sql);
 void exec(Db& db, const char* sql);
 
-} // be
 } // be::sqlite
 
 #endif

@@ -4,8 +4,7 @@
 
 #include "stmt_base.hpp"
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 namespace detail {
 
 struct CachedStmt;
@@ -29,6 +28,5 @@ private:
 };
 
 } // be::sqlite
-} // be
 
 #endif

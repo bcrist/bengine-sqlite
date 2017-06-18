@@ -2,8 +2,7 @@
 #include "exceptions.hpp"
 #include "sqlite.hpp"
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 SqliteError::SqliteError(int error)
@@ -47,4 +46,3 @@ const S& SqliteSqlError::sql() const {
 }
 
 } // be::sqlite
-} // be

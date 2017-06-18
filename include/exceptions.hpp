@@ -5,8 +5,7 @@
 #include "sqlite_fwd.hpp"
 #include <be/core/exceptions.hpp>
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 class SqliteError : public RecoverableException<int> {
@@ -30,6 +29,5 @@ private:
 };
 
 } // be::sqlite
-} // be
 
 #endif

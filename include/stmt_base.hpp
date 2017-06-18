@@ -6,8 +6,7 @@
 #include "sqlite_fwd.hpp"
 #include <be/core/id.hpp>
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 class StmtBase {
@@ -67,6 +66,5 @@ protected:
 };
 
 } // be::sqlite
-} // be
 
 #endif

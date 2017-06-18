@@ -2,8 +2,7 @@
 #include "static_stmt_cache.hpp"
 #include <cassert>
 
-namespace be {
-namespace sqlite {
+namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 StaticStmtCache::cached_stmt::cached_stmt(StaticStmtCache& cache, Stmt&& s) {
@@ -117,4 +116,3 @@ void StaticStmtCache::release_(cached_stmt& entry) {
 }
 
 } // be::sqlite
-} // be
