@@ -53,6 +53,7 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\result_code.hpp" />
     <ClInclude Include="include\static_stmt_cache.hpp" />
     <ClInclude Include="include\stmt_cache.hpp" />
     <ClInclude Include="include\stmt_proxy.hpp" />
@@ -63,7 +64,7 @@
     <ClInclude Include="include\sqlite_autolink.hpp" />
     <ClInclude Include="include\sqlite.hpp" />
     <ClInclude Include="include\sqlite_fwd.hpp" />
-    <ClInclude Include="include\exceptions.hpp" />
+    <ClInclude Include="include\sql_error.hpp" />
     <ClInclude Include="include\stmt.hpp" />
     <ClInclude Include="include\stmt_base.hpp" />
     <ClInclude Include="include\shared_stmt_cache.hpp" />
@@ -73,11 +74,12 @@
     <ClInclude Include="include\version.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\result_code.cpp" />
     <ClCompile Include="src\static_stmt_cache.cpp" />
     <ClCompile Include="src\stmt_cache.cpp" />
     <ClCompile Include="src\stmt_proxy.cpp" />
     <ClCompile Include="src\db.cpp" />
-    <ClCompile Include="src\exceptions.cpp" />
+    <ClCompile Include="src\sql_error.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
@@ -93,6 +95,9 @@
     <ClCompile Include="src\transaction_type.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="meta\extended_result_code.tsv" />
+    <None Include="meta\result_code.lua" />
+    <None Include="meta\result_code.tsv" />
     <None Include="meta\result_type.tsv" />
     <None Include="meta\result_type.lua" />
     <None Include="meta\transaction_type.lua" />

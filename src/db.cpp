@@ -1,6 +1,7 @@
 #include "pch.hpp"
 #include "db.hpp"
 #include "sqlite.hpp"
+#include "result_code.hpp"
 #include <cassert>
 
 namespace be::sqlite {
@@ -15,11 +16,11 @@ Db::Db(const char* path) {
    int result = sqlite3_open(path, &con);
    if (result != SQLITE_OK) {
       if (con) {
-         error e(result, sqlite3_errmsg(con));
+         RecoverableTrace e(ext_result_code(result), sqlite3_errmsg(con));
          sqlite3_close(con);
          throw e;
       } else {
-         throw error(result);
+         throw RecoverableTrace(ext_result_code(result));
       }
    }
    con_ = sqlite3_ptr(con);
@@ -35,11 +36,11 @@ Db::Db(const char* path, int flags) {
    int result = sqlite3_open_v2(path, &con, flags, nullptr);
    if (result != SQLITE_OK) {
       if (con) {
-         error e(result, sqlite3_errmsg(con));
+         RecoverableTrace e(ext_result_code(result), sqlite3_errmsg(con));
          sqlite3_close(con);
          throw e;
       } else {
-         throw error(result);
+         throw RecoverableTrace(ext_result_code(result));
       }
    }
    con_ = sqlite3_ptr(con);
@@ -55,11 +56,11 @@ Db::Db(const char* path, int flags, const char* vfs_name) {
    int result = sqlite3_open_v2(path, &con, flags, vfs_name);
    if (result != SQLITE_OK) {
       if (con) {
-         error e(result, sqlite3_errmsg(con));
+         RecoverableTrace e(ext_result_code(result), sqlite3_errmsg(con));
          sqlite3_close(con);
          throw e;
       } else {
-         throw error(result);
+         throw RecoverableTrace(ext_result_code(result));
       }
    }
    con_ = sqlite3_ptr(con);

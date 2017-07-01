@@ -2,19 +2,16 @@
 #ifndef BE_SQLITE_DB_HPP_
 #define BE_SQLITE_DB_HPP_
 
-#include "exceptions.hpp"
+#include "sql_error.hpp"
 #include "sqlite_fwd.hpp"
 
-#include <be/core/be.hpp>
+#include <be/core/exceptions.hpp>
 
 namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
 class Db final {
 public:
-   using error = StackTraceException<SqliteError>;
-   using sql_error = StackTraceException<SqliteSqlError>;
-
    Db() = default;
    
    explicit Db(const S& path);

@@ -1,5 +1,6 @@
 #include "pch.hpp"
 #include "queries.hpp"
+#include "result_code.hpp"
 #include "db.hpp"
 #include "sqlite.hpp"
 
@@ -17,9 +18,9 @@ void exec(Db& db, const S& sql) {
       if (err) {
          S msg = err;
          sqlite3_free(err);
-         throw SqliteSqlError(result, msg, sql);
+         throw SqlError(ext_result_code(result), msg, sql);
       } else {
-         throw SqliteSqlError(result, sql);
+         throw SqlError(ext_result_code(result), sql);
       }
    }
 }
@@ -32,9 +33,9 @@ void exec(Db& db, const char* sql) {
       if (err) {
          S msg = err;
          sqlite3_free(err);
-         throw SqliteSqlError(result, msg, sql);
+         throw SqlError(ext_result_code(result), msg, sql);
       } else {
-         throw SqliteSqlError(result, sql);
+         throw SqlError(ext_result_code(result), sql);
       }
    }
 }

@@ -33,9 +33,6 @@
     <ClInclude Include="include\sqlite_fwd.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\exceptions.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\queries.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -69,6 +66,12 @@
     <ClInclude Include="include\version.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\result_code.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sql_error.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\pch.cpp">
@@ -81,9 +84,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\sqlite.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\exceptions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\queries.cpp">
@@ -113,6 +113,12 @@
     <ClCompile Include="src\shared_stmt_cache.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\result_code.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sql_error.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="meta\result_type.lua">
@@ -122,6 +128,15 @@
       <Filter>Meta-Source Files</Filter>
     </None>
     <None Include="meta\result_type.tsv">
+      <Filter>Meta-Source Files</Filter>
+    </None>
+    <None Include="meta\extended_result_code.tsv">
+      <Filter>Meta-Source Files</Filter>
+    </None>
+    <None Include="meta\result_code.lua">
+      <Filter>Meta-Source Files</Filter>
+    </None>
+    <None Include="meta\result_code.tsv">
       <Filter>Meta-Source Files</Filter>
     </None>
   </ItemGroup>

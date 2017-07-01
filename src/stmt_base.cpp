@@ -1,6 +1,7 @@
 #include "pch.hpp"
 #include "stmt_base.hpp"
-#include "exceptions.hpp"
+#include "sql_error.hpp"
+#include "result_code.hpp"
 #include "sqlite.hpp"
 #include <cassert>
 
@@ -70,7 +71,7 @@ int StmtBase::parameter(const char* name) {
 void StmtBase::bind() {
    int result = sqlite3_clear_bindings(stmt_);
    if (result != SQLITE_OK) {
-      throw SqliteSqlError(con_, result, sql());
+      throw SqlError(con_, ext_result_code(result), sql());
    }
 }
 
@@ -81,7 +82,7 @@ void StmtBase::bind() {
 void StmtBase::bind(int parameter) {
    int result = sqlite3_bind_null(stmt_, parameter);
    if (result != SQLITE_OK) {
-      throw SqliteSqlError(con_, result, sql());
+      throw SqlError(con_, ext_result_code(result), sql());
    }
 }
 
@@ -96,7 +97,7 @@ void StmtBase::bind(int parameter) {
 void StmtBase::bind(int parameter, bool value) {
    int result = sqlite3_bind_int(stmt_, parameter, value ? 1 : 0);
    if (result != SQLITE_OK) {
-      throw SqliteSqlError(con_, result, sql());
+      throw SqlError(con_, ext_result_code(result), sql());
    }
 }
 
@@ -108,7 +109,7 @@ void StmtBase::bind(int parameter, bool value) {
 void StmtBase::bind(int parameter, I32 value) {
    int result = sqlite3_bind_int(stmt_, parameter, value);
    if (result != SQLITE_OK) {
-      throw SqliteSqlError(con_, result, sql());
+      throw SqlError(con_, ext_result_code(result), sql());
    }
 }
 
@@ -120,7 +121,7 @@ void StmtBase::bind(int parameter, I32 value) {
 void StmtBase::bind(int parameter, U32 value) {
    int result = sqlite3_bind_int64(stmt_, parameter, static_cast<sqlite3_int64>(value));
    if (result != SQLITE_OK) {
-      throw SqliteSqlError(con_, result, sql());
+      throw SqlError(con_, ext_result_code(result), sql());
    }
 }
 
@@ -132,7 +133,7 @@ void StmtBase::bind(int parameter, U32 value) {
 void StmtBase::bind(int parameter, I64 value) {
    int result = sqlite3_bind_int64(stmt_, parameter, value);
    if (result != SQLITE_OK) {
-      throw SqliteSqlError(con_, result, sql());
+      throw SqlError(con_, ext_result_code(result), sql());
    }  
 }
 
@@ -147,7 +148,7 @@ void StmtBase::bind(int parameter, I64 value) {
 void StmtBase::bind(int parameter, U64 value) {
    int result = sqlite3_bind_int64(stmt_, parameter, static_cast<sqlite3_int64>(value));
    if (result != SQLITE_OK) {
-      throw SqliteSqlError(con_, result, sql());
+      throw SqlError(con_, ext_result_code(result), sql());
    }
 }
 
@@ -159,7 +160,7 @@ void StmtBase::bind(int parameter, U64 value) {
 void StmtBase::bind(int parameter, F32 value) {
    int result = sqlite3_bind_double(stmt_, parameter, value);
    if (result != SQLITE_OK) {
-      throw SqliteSqlError(con_, result, sql());
+      throw SqlError(con_, ext_result_code(result), sql());
    }
 }
 
@@ -171,7 +172,7 @@ void StmtBase::bind(int parameter, F32 value) {
 void StmtBase::bind(int parameter, F64 value) {
    int result = sqlite3_bind_double(stmt_, parameter, value);
    if (result != SQLITE_OK) {
-      throw SqliteSqlError(con_, result, sql());
+      throw SqlError(con_, ext_result_code(result), sql());
    }
 }
 
@@ -183,7 +184,7 @@ void StmtBase::bind(int parameter, F64 value) {
 void StmtBase::bind(int parameter, const char* value) {
    int result = sqlite3_bind_text(stmt_, parameter, value, -1, SQLITE_TRANSIENT);
    if (result != SQLITE_OK) {
-      throw SqliteSqlError(con_, result, sql());
+      throw SqlError(con_, ext_result_code(result), sql());
    }
 }
 
@@ -199,7 +200,7 @@ void StmtBase::bind(int parameter, const char* value) {
 void StmtBase::bind_static(int parameter, const char* value) {
    int result = sqlite3_bind_text(stmt_, parameter, value, -1, SQLITE_STATIC);
    if (result != SQLITE_OK) {
-      throw SqliteSqlError(con_, result, sql());
+      throw SqlError(con_, ext_result_code(result), sql());
    }
 }
 
@@ -212,7 +213,7 @@ void StmtBase::bind_static(int parameter, const char* value) {
 void StmtBase::bind(int parameter, const void* value, int length) {
    int result = sqlite3_bind_blob(stmt_, parameter, value, length, SQLITE_TRANSIENT);
    if (result != SQLITE_OK) {
-      throw SqliteSqlError(con_, result, sql());
+      throw SqlError(con_, ext_result_code(result), sql());
    }
 }
 
@@ -229,7 +230,7 @@ void StmtBase::bind(int parameter, const void* value, int length) {
 void StmtBase::bind_static(int parameter, const void* value, int length) {
    int result = sqlite3_bind_blob(stmt_, parameter, value, length, SQLITE_STATIC);
    if (result != SQLITE_OK) {
-      throw SqliteSqlError(con_, result, sql());
+      throw SqlError(con_, ext_result_code(result), sql());
    }
 }
 
@@ -244,7 +245,7 @@ bool StmtBase::step() {
    } else if (result == SQLITE_ROW) {
       return true;
    } else {
-      throw SqliteSqlError(con_, result, sql());
+      throw SqlError(con_, ext_result_code(result), sql());
    }
 }
 
@@ -254,7 +255,7 @@ bool StmtBase::step() {
 void StmtBase::reset() {
    int result = sqlite3_reset(stmt_);
    if (result != SQLITE_OK) {
-      throw SqliteSqlError(con_, result, sql());
+      throw SqlError(con_, ext_result_code(result), sql());
    }
 }
 
