@@ -53,6 +53,7 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\log_exception.hpp" />
     <ClInclude Include="include\result_code.hpp" />
     <ClInclude Include="include\static_stmt_cache.hpp" />
     <ClInclude Include="include\stmt_cache.hpp" />
@@ -74,6 +75,7 @@
     <ClInclude Include="include\version.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\log_exception.cpp" />
     <ClCompile Include="src\result_code.cpp" />
     <ClCompile Include="src\static_stmt_cache.cpp" />
     <ClCompile Include="src\stmt_cache.cpp" />
