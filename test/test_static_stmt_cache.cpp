@@ -16,13 +16,13 @@ TEST_CASE("be::sqlite::StaticStmtCache", BE_CATCH_TAGS) {
    REQUIRE_NOTHROW(exec(db, "CREATE TABLE u (a INTEGER PRIMARY KEY)"));
 
    StaticStmtCache cache(db);
-   
+
    REQUIRE(cache.size() == 0);
    REQUIRE(cache.held_size() == 0);
 
    {
       StmtProxy stmt = cache.obtain("SELECT COUNT(*) FROM u");
-   
+
       REQUIRE(cache.size() == 1);
       REQUIRE(cache.held_size() == 1);
       REQUIRE(stmt);

@@ -51,7 +51,7 @@ public:
    F64 get_f64(int column);
    const char* get_text(int column);
    const void* get_blob(int column, size_t& length);
-   
+
 protected:
    StmtBase();
    StmtBase(const StmtBase& other) = default;

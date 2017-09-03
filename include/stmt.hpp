@@ -15,7 +15,7 @@ public:
    Stmt() = default;
    Stmt(Db& db, const S& sql);
    Stmt(Db& db, Id id, const S& sql);
-   
+
 private:
    struct deleter {
       void operator()(sqlite3_stmt* stmt);

@@ -17,7 +17,7 @@ public:
    SqlError(SqlError&& other) noexcept;
    SqlError& operator=(const SqlError&) = default;
    SqlError& operator=(SqlError&& other) noexcept;
-   
+
    const S& sql() const noexcept;
 
 private:

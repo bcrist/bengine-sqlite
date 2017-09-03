@@ -35,7 +35,7 @@ Transaction::operator bool() const {
 void Transaction::rollback() {
    assert(db_.get());
    exec(*db_, "ROLLBACK");
-   db_.release();   
+   db_.release();
 }
 
 ///////////////////////////////////////////////////////////////////////////////

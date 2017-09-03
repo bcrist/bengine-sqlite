@@ -13,18 +13,18 @@ namespace be::sqlite {
 class Db final {
 public:
    Db() = default;
-   
+
    explicit Db(const S& path);
    explicit Db(const char* path);
 
    Db(const S& path, int flags);
    Db(const char* path, int flags);
-   
+
    Db(const S& path, int flags, const S& vfs_name);
    Db(const char* path, int flags, const char* vfs_name);
 
    explicit operator bool() const;
-   
+
    sqlite3* raw();
 
 private:

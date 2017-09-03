@@ -134,7 +134,7 @@ void StmtBase::bind(int parameter, I64 value) {
    int result = sqlite3_bind_int64(stmt_, parameter, value);
    if (result != SQLITE_OK) {
       throw SqlError(con_, ext_result_code(result), sql());
-   }  
+   }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -269,7 +269,7 @@ int StmtBase::columns() {
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \brief  Returns the column index of the column with the specified name.
-/// 
+///
 /// \note   This is __much__ slower than specifying column indices directly.
 ///
 /// \param  name The name of the column we are interested in.
@@ -331,7 +331,7 @@ I32 StmtBase::get_i32(int column) {
 ///
 /// \details If the value is negative, it will be represented in 2's complement
 ///         format.
-/// 
+///
 /// \param  column The column to retrieve.
 ///
 /// \return The value of the column.

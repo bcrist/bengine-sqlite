@@ -26,7 +26,7 @@ TEST_CASE("be::sqlite::Db", BE_CATCH_TAGS) {
    SECTION("vacuum()") {
       REQUIRE_NOTHROW(vacuum(db));
    }
-   
+
 }
 
 #endif

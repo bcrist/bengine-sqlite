@@ -15,7 +15,7 @@ public:
    Transaction() = default;
    explicit Transaction(Db& db);
    Transaction(Db& db, TransactionType type);
-   
+
    explicit operator bool() const;
 
    //void save(const S& savepoint);
