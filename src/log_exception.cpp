@@ -6,7 +6,7 @@
 namespace be::sqlite {
 
 ///////////////////////////////////////////////////////////////////////////////
-void log_exception(const SqlTrace& e, Log& log, v::Verbosity verbosity, const char* source) {
+void log_exception(const SqlTrace& e, v::Verbosity verbosity, Log& log, const char* source) {
    be_log(verbosity, source) << S(e.what())
       & attr(ids::log_attr_category) << e.code().category().name()
       & attr(ids::log_attr_error) << ext_result_code(e.code().value())
@@ -18,7 +18,7 @@ void log_exception(const SqlTrace& e, Log& log, v::Verbosity verbosity, const ch
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-void log_exception(const SqlError& e, Log& log, v::Verbosity verbosity, const char* source) {
+void log_exception(const SqlError& e, v::Verbosity verbosity, Log& log, const char* source) {
    be_log(verbosity, source) << S(e.what())
       & attr(ids::log_attr_category) << e.code().category().name()
       & attr(ids::log_attr_error) << ext_result_code(e.code().value())
