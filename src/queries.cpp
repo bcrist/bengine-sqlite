@@ -12,7 +12,7 @@ void vacuum(Db& db) {
 
 ///////////////////////////////////////////////////////////////////////////////
 void exec(Db& db, const S& sql) {
-   char* err;
+   char* err = nullptr;
    int result = sqlite3_exec(db.raw(), sql.c_str(), nullptr, nullptr, &err);
    if (result != SQLITE_OK) {
       if (err) {
@@ -27,7 +27,7 @@ void exec(Db& db, const S& sql) {
 
 ///////////////////////////////////////////////////////////////////////////////
 void exec(Db& db, const char* sql) {
-   char* err;
+   char* err = nullptr;
    int result = sqlite3_exec(db.raw(), sql, nullptr, nullptr, &err);
    if (result != SQLITE_OK) {
       if (err) {
