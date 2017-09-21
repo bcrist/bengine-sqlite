@@ -5,9 +5,15 @@
 #include "sqlite.hpp"
 
 namespace be::sqlite {
+
 ///////////////////////////////////////////////////////////////////////////////
 void vacuum(Db& db) {
    exec(db, "VACUUM");
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void analyze(Db& db) {
+   exec(db, "ANALYZE");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -18,9 +24,9 @@ void exec(Db& db, const S& sql) {
       if (err) {
          S msg = err;
          sqlite3_free(err);
-         throw SqlError(ext_result_code(result), msg, sql);
+         throw SqlTrace(ext_result_code(result), msg, sql);
       } else {
-         throw SqlError(ext_result_code(result), sql);
+         throw SqlTrace(ext_result_code(result), sql);
       }
    }
 }
@@ -33,9 +39,9 @@ void exec(Db& db, const char* sql) {
       if (err) {
          S msg = err;
          sqlite3_free(err);
-         throw SqlError(ext_result_code(result), msg, sql);
+         throw SqlTrace(ext_result_code(result), msg, sql);
       } else {
-         throw SqlError(ext_result_code(result), sql);
+         throw SqlTrace(ext_result_code(result), sql);
       }
    }
 }

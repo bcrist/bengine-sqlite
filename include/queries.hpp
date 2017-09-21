@@ -10,6 +10,7 @@ namespace be::sqlite {
 class Db;
 
 void vacuum(Db& db);
+void analyze(Db& db);
 
 void exec(Db& db, const S& sql);
 void exec(Db& db, const char* sql);

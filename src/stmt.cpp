@@ -41,9 +41,9 @@ Stmt::Stmt(Db& db, Id id, const S& sql) {
    assert(sql.length() + 1 < static_cast<std::size_t>(std::numeric_limits<int>::max()));
    int result = sqlite3_prepare_v2(db.raw(), start, static_cast<int>(sql.length() + 1), &stmt, &tail);
    if (result != SQLITE_OK || !stmt) {
-      throw SqlError(db.raw(), ext_result_code(result), sql);
+      throw SqlTrace(db.raw(), ext_result_code(result), sql);
    } else if (tail && tail < end) {
-      throw SqlError(ExtendedResultCode::api_misuse, "Multiple SQL statements provided to Stmt constructor!", sql);
+      throw SqlTrace(ExtendedResultCode::api_misuse, "Multiple SQL statements provided to Stmt constructor!", sql);
    } else {
       stmt_ptr_ = sqlite3_stmt_ptr(stmt);
       stmt_ = stmt;
