@@ -62,7 +62,6 @@
     <ClInclude Include="src\pch.hpp" />
     <ClInclude Include="include\queries.hpp" />
     <ClInclude Include="include\result_type.hpp" />
-    <ClInclude Include="include\sqlite_autolink.hpp" />
     <ClInclude Include="include\sqlite.hpp" />
     <ClInclude Include="include\sqlite_fwd.hpp" />
     <ClInclude Include="include\sql_error.hpp" />

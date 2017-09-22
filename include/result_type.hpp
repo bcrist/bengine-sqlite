@@ -2,7 +2,6 @@
 #ifndef BE_SQLITE_RESULT_TYPE_HPP_
 #define BE_SQLITE_RESULT_TYPE_HPP_
 
-#include "sqlite_autolink.hpp"
 #include <be/core/enum_traits.hpp>
 
 /*!! include 'result_type' !! 56 */

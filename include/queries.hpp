@@ -2,7 +2,6 @@
 #ifndef BE_SQLITE_QUERIES_HPP_
 #define BE_SQLITE_QUERIES_HPP_
 
-#include "sqlite_autolink.hpp"
 #include <be/core/be.hpp>
 
 namespace be::sqlite {

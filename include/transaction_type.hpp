@@ -2,7 +2,6 @@
 #ifndef BE_SQLITE_TRANSACTION_TYPE_HPP_
 #define BE_SQLITE_TRANSACTION_TYPE_HPP_
 
-#include "sqlite_autolink.hpp"
 #include <be/core/enum_traits.hpp>
 
 /*!! include 'transaction_type' !! 51 */

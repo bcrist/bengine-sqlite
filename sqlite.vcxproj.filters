@@ -18,9 +18,6 @@
     <ClInclude Include="src\pch.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\sqlite_autolink.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\db.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

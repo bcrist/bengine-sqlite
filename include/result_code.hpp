@@ -2,7 +2,6 @@
 #ifndef BE_SQLITE_RESULT_CODE_HPP_
 #define BE_SQLITE_RESULT_CODE_HPP_
 
-#include "sqlite_autolink.hpp"
 #include "sqlite.hpp"
 #include <be/core/enum_traits.hpp>
 
