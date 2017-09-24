@@ -181,8 +181,9 @@ void StmtBase::bind(int parameter, F64 value) {
 ///
 /// \param  parameter The index of the parameter to bind.
 /// \param  value The value to bind to the parameter.
-void StmtBase::bind(int parameter, const char* value) {
-   int result = sqlite3_bind_text(stmt_, parameter, value, -1, SQLITE_TRANSIENT);
+void StmtBase::bind(int parameter, SV value) {
+   assert(value.size() == ( int ) value.size());
+   int result = sqlite3_bind_text(stmt_, parameter, value.data(), ( int ) value.size(), SQLITE_TRANSIENT);
    if (result != SQLITE_OK) {
       throw SqlTrace(con_, ext_result_code(result), sql());
    }
@@ -197,8 +198,9 @@ void StmtBase::bind(int parameter, const char* value) {
 ///
 /// \param  parameter The index of the parameter to bind.
 /// \param  value The value to bind to the parameter.
-void StmtBase::bind_static(int parameter, const char* value) {
-   int result = sqlite3_bind_text(stmt_, parameter, value, -1, SQLITE_STATIC);
+void StmtBase::bind_static(int parameter, SV value) {
+   assert(value.size() == ( int ) value.size());
+   int result = sqlite3_bind_text(stmt_, parameter, value.data(), ( int ) value.size(), SQLITE_STATIC);
    if (result != SQLITE_OK) {
       throw SqlTrace(con_, ext_result_code(result), sql());
    }
@@ -210,8 +212,9 @@ void StmtBase::bind_static(int parameter, const char* value) {
 /// \param  parameter The index of the parameter to bind.
 /// \param  value The blob value to bind to the parameter.
 /// \param  length The number of bytes in the blob.
-void StmtBase::bind(int parameter, const void* value, int length) {
-   int result = sqlite3_bind_blob(stmt_, parameter, value, length, SQLITE_TRANSIENT);
+void StmtBase::bind(int parameter, const void* value, std::size_t length) {
+   assert(length == ( int ) length);
+   int result = sqlite3_bind_blob(stmt_, parameter, value, ( int ) length, SQLITE_TRANSIENT);
    if (result != SQLITE_OK) {
       throw SqlTrace(con_, ext_result_code(result), sql());
    }
@@ -227,8 +230,9 @@ void StmtBase::bind(int parameter, const void* value, int length) {
 /// \param  parameter The index of the parameter to bind.
 /// \param  value The byte array value to bind to the parameter.
 /// \param  length The number of bytes in the byte array.
-void StmtBase::bind_static(int parameter, const void* value, int length) {
-   int result = sqlite3_bind_blob(stmt_, parameter, value, length, SQLITE_STATIC);
+void StmtBase::bind_static(int parameter, const void* value, std::size_t length) {
+   assert(length == ( int ) length);
+   int result = sqlite3_bind_blob(stmt_, parameter, value, ( int ) length, SQLITE_STATIC);
    if (result != SQLITE_OK) {
       throw SqlTrace(con_, ext_result_code(result), sql());
    }
@@ -393,9 +397,11 @@ F64 StmtBase::get_f64(int column) {
 /// \param  column The column to retrieve.
 ///
 /// \return The value of the column as a nul-terminated c-string.
-const char* StmtBase::get_text(int column) {
+SV StmtBase::get_text(int column) {
    assert(column >= 0 && column < columns());
-   return reinterpret_cast<const char*>(sqlite3_column_text(stmt_, column));
+   const char* ptr = static_cast<const char*>(static_cast<const void*>(sqlite3_column_text(stmt_, column)));
+   std::size_t size = static_cast<std::size_t>(sqlite3_column_bytes(stmt_, column));
+   return SV(ptr, size);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -405,10 +411,10 @@ const char* StmtBase::get_text(int column) {
 /// \param  length A variable in which to store the size of the blob, in bytes.
 ///
 /// \return The blob data.
-const void* StmtBase::get_blob(int column, size_t& length) {
+const void* StmtBase::get_blob(int column, std::size_t& length) {
    assert(column >= 0 && column < columns());
-   size_t size = static_cast<size_t>(sqlite3_column_bytes(stmt_, column));
    const void* blob = sqlite3_column_blob(stmt_, column);
+   std::size_t size = static_cast<std::size_t>(sqlite3_column_bytes(stmt_, column));
    length = size;
    return blob;
 }

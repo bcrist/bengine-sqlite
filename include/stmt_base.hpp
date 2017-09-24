@@ -5,6 +5,7 @@
 #include "result_type.hpp"
 #include "sqlite_fwd.hpp"
 #include <be/core/id.hpp>
+#include <be/core/buf.hpp>
 
 namespace be::sqlite {
 
@@ -29,10 +30,20 @@ public:
    void bind(int parameter, U64 value);
    void bind(int parameter, F32 value);
    void bind(int parameter, F64 value);
-   void bind(int parameter, const char* value);
-   void bind_static(int parameter, const char* value);
-   void bind(int parameter, const void* value, int length);
-   void bind_static(int parameter, const void* value, int length);
+   void bind(int parameter, SV value);
+   void bind_static(int parameter, SV value);
+   void bind(int parameter, const void* value, std::size_t length);
+   void bind_static(int parameter, const void* value, std::size_t length);
+
+   template <typename T>
+   void bind(int parameter, Buf<T> data) {
+      bind(parameter, data.get(), data.size() * sizeof(T));
+   }
+
+   template <typename T>
+   void bind_static(int parameter, Buf<T> data) {
+      bind_static(parameter, data.get(), data.size() * sizeof(T));
+   }
 
    bool step();
    void reset();
@@ -49,8 +60,15 @@ public:
    U64 get_u64(int column);
    F32 get_f32(int column);
    F64 get_f64(int column);
-   const char* get_text(int column);
-   const void* get_blob(int column, size_t& length);
+   SV get_text(int column);
+   const void* get_blob(int column, std::size_t& length);
+
+   template <typename T>
+   Buf<const T> get_blob(int column) {
+      std::size_t len;
+      const void* ptr = get_blob(column, len);
+      return Buf<T>(static_cast<const T*>(ptr), len / sizeof(T));
+   }
 
 protected:
    StmtBase();
