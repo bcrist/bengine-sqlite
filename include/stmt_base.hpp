@@ -30,6 +30,8 @@ public:
    void bind(int parameter, U64 value);
    void bind(int parameter, F32 value);
    void bind(int parameter, F64 value);
+   void bind(int parameter, const char* value);
+   void bind_static(int parameter, const char* value);
    void bind(int parameter, SV value);
    void bind_static(int parameter, SV value);
    void bind(int parameter, const void* value, std::size_t length);

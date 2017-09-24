@@ -181,6 +181,30 @@ void StmtBase::bind(int parameter, F64 value) {
 ///
 /// \param  parameter The index of the parameter to bind.
 /// \param  value The value to bind to the parameter.
+void StmtBase::bind(int parameter, const char* value) {
+   int result = sqlite3_bind_text(stmt_, parameter, value, -1, SQLITE_TRANSIENT);
+   if (result != SQLITE_OK) {
+      throw SqlTrace(con_, ext_result_code(result), sql());
+   }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// \brief  Binds a text string value to the specified parameter.
+///
+/// \param  parameter The index of the parameter to bind.
+/// \param  value The value to bind to the parameter.
+void StmtBase::bind_static(int parameter, const char* value) {
+   int result = sqlite3_bind_text(stmt_, parameter, value, -1, SQLITE_STATIC);
+   if (result != SQLITE_OK) {
+      throw SqlTrace(con_, ext_result_code(result), sql());
+   }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// \brief  Binds a text string value to the specified parameter.
+///
+/// \param  parameter The index of the parameter to bind.
+/// \param  value The value to bind to the parameter.
 void StmtBase::bind(int parameter, SV value) {
    assert(value.size() == ( int ) value.size());
    int result = sqlite3_bind_text(stmt_, parameter, value.data(), ( int ) value.size(), SQLITE_TRANSIENT);
